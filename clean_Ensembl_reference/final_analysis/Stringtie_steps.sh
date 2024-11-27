@@ -12,84 +12,47 @@ EastrFilteredBams=$3
 MinimapOutDir=$4
 GenomeGtfFull=$5
 
+# check Bowtie index dir exists
+if [ ! -d $StrigntieOutDir/control_dKD ]; then
+    mkdir $StrigntieOutDir/control_dKD
+fi
+
+if [ ! -d $StrigntieOutDir/control_dKD/gffcompare ]; then
+    mkdir $StrigntieOutDir/control_dKD/gffcompare
+fi
+
 
 
 #control
 #decided to only take the second replicate as the first one had such a low mapping rate
-/home/fuchs/agschulz/kalk/tools/stringtie-2.2.3.Linux_x86_64/stringtie\
- -o $StrigntieOutDir/control_clean_Ens_assembly.gtf\
- --mix -G $GenomeGTF \
- $EastrFilteredBams/control_short_merged_clean_Ens_EASTR_filtered.bam\
- $MinimapOutDir/Scr_2.bam
-
-
-#UPF1 assembly
-/home/fuchs/agschulz/kalk/tools/stringtie-2.2.3.Linux_x86_64/stringtie\
- -o $StrigntieOutDir/UPF1_clean_Ens_assembly.gtf\
- --mix -G $GenomeGTF \
- $EastrFilteredBams/UPF1_short_merged_clean_Ens_EASTR_filtered.bam\
- $MinimapOutDir/UPF1_KD.bam
-
-#dKD assembly
-/home/fuchs/agschulz/kalk/tools/stringtie-2.2.3.Linux_x86_64/stringtie\
- -o $StrigntieOutDir/dKD_clean_Ens_assembly.gtf\
- --mix -G $GenomeGTF \
- $EastrFilteredBams/dKD_short_merged_clean_Ens_EASTR_filtered.bam\
- $MinimapOutDir/dKD.bam
-
-# # replace the gene and tids by the original gene and tids instead of what Stringtie invented
-# python replace_gene_id_and_tid_by_ref_name.py $StrigntieOutDir/control_clean_Ens_assembly.gtf $StrigntieOutDir/control_clean_Ens_assembly_gene_and_tid_names.gtf
-# python replace_gene_id_and_tid_by_ref_name.py $StrigntieOutDir/dKD_clean_Ens_assembly.gtf $StrigntieOutDir/dKD_clean_Ens_assembly_gene_and_tid_names.gtf
-# python replace_gene_id_and_tid_by_ref_name.py $StrigntieOutDir/UPF1_clean_Ens_assembly.gtf $StrigntieOutDir/UPF1_clean_Ens_assembly_gene_and_tid_names.gtf
-
-# #gffcompare to check how many transcripts are assembeled in the new assemblies compared to reference
-# gffcompare -L -o control_dKD_gffcomp_with_ref\
-#  -r /Users/christina/Documents/NMD_prediction/clean_Ensembl_reference/clean_ref_tsl_and_gffcompare/Ensembl_equality_and_TSL_filtered.gtf\
-#   control_clean_Ens_assembly_gene_and_tid_names.gtf\
-#    dKD_clean_Ens_assembly_gene_and_tid_names.gtf 
-
-# python get_mapping_STRG_ids_by_tracking_gffcomapre.py\
-#  control_dKD/control_dKD_gffcomp_with_ref.tracking\
-#   control_clean_Ens_assembly_gene_and_tid_names.gtf\
-#    control_clean_Ens_assembly_gene_and_tid_names_for_diff_analysis_with_dKD.gtf\
-#     dKD_clean_Ens_assembly_gene_and_tid_names.gtf\
-#      dKD_clean_Ens_assembly_gene_and_tid_names_for_diff_analysis_with_control.gtf
-
-
-
-# python gtf_to_bed_XLOC.py\
-#  control_dKD/control_clean_Ens_assembly_gene_and_tid_names_for_diff_analysis_with_dKD.gtf\
-#   control_dKD/control_clean_Ens_assembly_gene_and_tid_names_for_diff_analysis_with_dKD.bed XLOC
-# python gtf_to_bed_XLOC.py control_dKD/dKD_clean_Ens_assembly_gene_and_tid_names_for_diff_analysis_with_control.gtf\
-#  control_dKD/dKD_clean_Ens_assembly_gene_and_tid_names_for_diff_analysis_with_control.bed XLOC
-
-
-
-# python intersect_gffcompare_ids.py Ensembl_110_genes.bed\
-#  control_dKD/dKD_clean_Ens_assembly_gene_and_tid_names_for_diff_analysis_with_control.bed\
-#   control_dKD/dKD_clean_Ens_assembly_gene_and_tid_names_for_diff_analysis_with_control.gtf\
-#    control_dKD/dKD_renamed.gtf
-# python intersect_gffcompare_ids.py Ensembl_110_genes.bed  control_dKD/dKD_clean_Ens_assembly_gene_and_tid_names_for_diff_analysis_with_control.bed control_dKD/dKD_clean_Ens_assembly_gene_and_tid_names_for_diff_analysis_with_control.gtf control_dKD/dKD_renamed.gtf
-# python intersect_gffcompare_ids.py Ensembl_110_genes.bed  control_dKD/dKD_clean_Ens_assembly_gene_and_tid_names_for_diff_analysis_with_control.bed control_dKD/dKD_clean_Ens_assembly_gene_and_tid_names_for_diff_analysis_with_control.gtf control_dKD/dKD_renamed.gtf
-
-
-# # Filter out those entries where the strand is not defined
-# awk -F " " '$7!="."' dKD_renamed.gtf > dKD_renamed_filtered.gtf
-
- #decided to only take the second replicate as the first one had such a low mapping rate
 # /home/fuchs/agschulz/kalk/tools/stringtie-2.2.3.Linux_x86_64/stringtie\
-#  --merge \
-#  -o /scratch/fuchs/agschulz/kalk/clean_Ensembl_reference/salmon/assemblies_for_quantification/stringtie_merge_dKD_control/dKD_merged_control.gtf\
-#  /scratch/fuchs/agschulz/kalk/clean_Ensembl_reference/salmon/assemblies_for_quantification/dKD_vs_control/control_dKD_renamed_filtered.gtf\
-#   /scratch/fuchs/agschulz/kalk/clean_Ensembl_reference/salmon/assemblies_for_quantification/dKD_vs_control/dKD_renamed_filtered.gtf
+#  -o $StrigntieOutDir/control_clean_Ens_assembly.gtf\
+#  --mix -G $GenomeGTF \
+#  $EastrFilteredBams/control_short_merged_clean_Ens_EASTR_filtered.bam\
+#  $MinimapOutDir/Scr_2.bam
+
+
+# #UPF1 assembly
+# /home/fuchs/agschulz/kalk/tools/stringtie-2.2.3.Linux_x86_64/stringtie\
+#  -o $StrigntieOutDir/UPF1_clean_Ens_assembly.gtf\
+#  --mix -G $GenomeGTF \
+#  $EastrFilteredBams/UPF1_short_merged_clean_Ens_EASTR_filtered.bam\
+#  $MinimapOutDir/UPF1_KD.bam
+
+# #dKD assembly
+# /home/fuchs/agschulz/kalk/tools/stringtie-2.2.3.Linux_x86_64/stringtie\
+#  -o $StrigntieOutDir/dKD_clean_Ens_assembly.gtf\
+#  --mix -G $GenomeGTF \
+#  $EastrFilteredBams/dKD_short_merged_clean_Ens_EASTR_filtered.bam\
+#  $MinimapOutDir/dKD.bam
+
 
 
 /home/fuchs/agschulz/kalk/tools/stringtie-2.2.3.Linux_x86_64/stringtie\
   --merge \
-  -o $StrigntieOutDir/stringtie_merge_dKD_control/dKD_merged_control.gtf\
+  -o $StrigntieOutDir/control_dKD/dKD_merged_control.gtf\
   $StrigntieOutDir/dKD_clean_Ens_assembly.gtf\
    $StrigntieOutDir/control_clean_Ens_assembly.gtf
-
 
 # activate conda env required for the python scripts
 PATH="/home/fuchs/agschulz/kalk/miniforge3/bin:$PATH"
@@ -98,23 +61,50 @@ source /home/fuchs/agschulz/kalk/miniforge3/etc/profile.d/conda.sh
 eval "$(conda shell.bash hook)"
 source activate myenvname
 
-python replace_gene_id_and_tid_by_ref_name_MSTRG.py $StrigntieOutDir/stringtie_merge_dKD_control/dKD_merged_control.gtf\
- $StrigntieOutDir/stringtie_merge_dKD_control/dKD_merged_control_gid_tid_reference.gtf
-
-awk -F " " '$7!="."' $StrigntieOutDir/stringtie_merge_dKD_control/dKD_merged_control_gid_tid_reference.gtf\
- > $StrigntieOutDir/stringtie_merge_dKD_control/dKD_merged_control_gid_tid_reference_filtered.gtf
+gffcompare -L -o $StrigntieOutDir/control_dKD/gffcompare\
+ -r $GenomeGTF\
+  $StrigntieOutDir/control_dKD/dKD_merged_control.gtf
 
 
-python gtf_to_bed.py\
+python renaming_scripts/rename_MSTRG_shit.py\
+ $StrigntieOutDir/control_dKD/dKD_merged_control.gtf\
+  $StrigntieOutDir/control_dKD/gffcompare.dKD_merged_control.gtf.tmap\
+    $StrigntieOutDir/control_dKD/dKD_merged_control_renamed.gtf
+
+
+# Filter out those entries where the strand is not defined
+awk -F " " '$7!="."' $StrigntieOutDir/control_dKD/dKD_merged_control_renamed.gtf\
+ > $StrigntieOutDir/control_dKD/dKD_merged_control_renamed_filtered.gtf
+
+
+python renaming_scripts/gtf_to_bed.py\
+ $StrigntieOutDir/control_dKD/dKD_merged_control_renamed_filtered.gtf\
+ $StrigntieOutDir/control_dKD/dKD_merged_control_renamed_filtered.bed MSTRG 
+
+python renaming_scripts/gtf_to_bed.py\
  $GenomeGtfFull\
-  $StrigntieOutDir/stringtie_merge_dKD_control/Homo_sapiens.GRCh38.110.chr.bed reference
+  $StrigntieOutDir/control_dKD/Homo_sapiens.GRCh38.110.chr.bed reference
 
-python gtf_to_bed.py $StrigntieOutDir/stringtie_merge_dKD_control/dKD_merged_control_gid_tid_reference_filtered.gtf\
- $StrigntieOutDir/stringtie_merge_dKD_control/dKD_merged_control_gid_tid_reference_filtered.bed MSTRG 
+python renaming_scripts/intersect_MSTRG.py\
+ $StrigntieOutDir/control_dKD/dKD_merged_control_renamed_filtered.bed\
+ $StrigntieOutDir/control_dKD/Homo_sapiens.GRCh38.110.chr.bed\
+  $StrigntieOutDir/control_dKD/dKD_merged_control_renamed_filtered.gtf\
+   $StrigntieOutDir/control_dKD/dKD_merged_control_final.gtf
 
 
-python intersect_MSTRG.py\
- $StrigntieOutDir/stringtie_merge_dKD_control/dKD_merged_control_gid_tid_reference_filtered.bed\
- $StrigntieOutDir/stringtie_merge_dKD_control/Homo_sapiens.GRCh38.110.chr.bed\
-  $StrigntieOutDir/stringtie_merge_dKD_control/dKD_merged_control_gid_tid_reference_filtered.gtf\
-   $StrigntieOutDir/stringtie_merge_dKD_control/dKD_merged_control_final_renamed.gtf
+
+
+
+
+
+
+
+# python renaming_scripts/get_mapping_STRG_ids_by_tracking_gffcomapre.py\
+#  $StrigntieOutDir/control_dKD/dKD_merged_control_gffcomp_ref.tracking\
+#  $StrigntieOutDir/control_dKD/dKD_merged_control.gtf\
+#  $StrigntieOutDir/control_dKD/dKD_merged_control_renamed.gtf
+
+
+
+
+

@@ -33,17 +33,17 @@ SalmonOutDir=/scratch/fuchs/agschulz/kalk/clean_Ensembl_reference/salmon/control
 . ~/spack/share/spack/setup-env.sh
 spack load star@2.7.10b
 
-# bash Star_steps.sh $StarGenomeIndex $GenomeFasta $FilteredEnsemblGtf $ReadLengthMinOne $ShortReadDir $OutDirStar $RemoveShortReadName
+bash Star_steps.sh $StarGenomeIndex $GenomeFasta $FilteredEnsemblGtf $ReadLengthMinOne $ShortReadDir $OutDirStar $RemoveShortReadName
 
 
-# bash EASTR_steps.sh $GenomeFasta $BowtieIndexDir $EastrOutDir $ListBam
+bash EASTR_steps.sh $GenomeFasta $BowtieIndexDir $EastrOutDir $ListBam
 
 
-# bash Minimap_with_juncs.sh $GenomeFasta $EastrOutDir/Karousis_filtered_junctions $LongReadDir $MinimapOutDir
+bash Minimap_with_juncs.sh $GenomeFasta $EastrOutDir/Karousis_filtered_junctions $LongReadDir $MinimapOutDir
 
 # # bash Stringtie gedoens and rename gedoens
 
 bash Stringtie_steps.sh $FilteredEnsemblGtf $StrigntieOutDir $EastrOutDir/Karousis_data_filtered $MinimapOutDir $GenomeGtfFull
 
 # bash salmon 
-# bash Salmon_steps.sh "$StrigntieOutDir"/control_dKD/dKD_merged_control_final.gtf $GenomeFasta $SalmonRefDir $SalmonOutDir $ShortReadDir
+bash Salmon_steps.sh "$StrigntieOutDir"/control_dKD/dKD_merged_control_final.gtf $GenomeFasta $SalmonRefDir $SalmonOutDir $ShortReadDir

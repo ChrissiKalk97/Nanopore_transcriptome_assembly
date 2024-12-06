@@ -23,28 +23,28 @@ fi
 
 
 
-#control
-#decided to only take the second replicate as the first one had such a low mapping rate
-# /home/fuchs/agschulz/kalk/tools/stringtie-2.2.3.Linux_x86_64/stringtie\
-#  -o $StrigntieOutDir/control_clean_Ens_assembly.gtf\
-#  --mix -G $GenomeGTF \
-#  $EastrFilteredBams/control_short_merged_clean_Ens_EASTR_filtered.bam\
-#  $MinimapOutDir/Scr_2.bam
+# control
+# decided to only take the second replicate as the first one had such a low mapping rate
+/home/fuchs/agschulz/kalk/tools/stringtie-2.2.3.Linux_x86_64/stringtie\
+ -o $StrigntieOutDir/control_clean_Ens_assembly.gtf\
+ --mix -G $GenomeGTF \
+ $EastrFilteredBams/control_short_merged_clean_Ens_EASTR_filtered.bam\
+ $MinimapOutDir/Scr_2.bam
 
 
-# #UPF1 assembly
-# /home/fuchs/agschulz/kalk/tools/stringtie-2.2.3.Linux_x86_64/stringtie\
-#  -o $StrigntieOutDir/UPF1_clean_Ens_assembly.gtf\
-#  --mix -G $GenomeGTF \
-#  $EastrFilteredBams/UPF1_short_merged_clean_Ens_EASTR_filtered.bam\
-#  $MinimapOutDir/UPF1_KD.bam
+# UPF1 assembly
+/home/fuchs/agschulz/kalk/tools/stringtie-2.2.3.Linux_x86_64/stringtie\
+ -o $StrigntieOutDir/UPF1_clean_Ens_assembly.gtf\
+ --mix -G $GenomeGTF \
+ $EastrFilteredBams/UPF1_short_merged_clean_Ens_EASTR_filtered.bam\
+ $MinimapOutDir/UPF1_KD.bam
 
-# #dKD assembly
-# /home/fuchs/agschulz/kalk/tools/stringtie-2.2.3.Linux_x86_64/stringtie\
-#  -o $StrigntieOutDir/dKD_clean_Ens_assembly.gtf\
-#  --mix -G $GenomeGTF \
-#  $EastrFilteredBams/dKD_short_merged_clean_Ens_EASTR_filtered.bam\
-#  $MinimapOutDir/dKD.bam
+# dKD assembly
+/home/fuchs/agschulz/kalk/tools/stringtie-2.2.3.Linux_x86_64/stringtie\
+ -o $StrigntieOutDir/dKD_clean_Ens_assembly.gtf\
+ --mix -G $GenomeGTF \
+ $EastrFilteredBams/dKD_short_merged_clean_Ens_EASTR_filtered.bam\
+ $MinimapOutDir/dKD.bam
 
 
 

@@ -1,0 +1,6 @@
+/scratch/fuchs/agschulz/kalk/sra_results/files/trimmed/SRR4081237_trimmomatic_crop_75_slow_2_threads.fastq
+/scratch/fuchs/agschulz/kalk/sra_results/files/trimmed/SRR4081238_trimmomatic_crop_75_slow_2_threads.fastq
+/scratch/fuchs/agschulz/kalk/sra_results/files/trimmed/SRR4081239_trimmomatic_crop_75_slow_2_threads.fastq
+/scratch/fuchs/agschulz/kalk/sra_results/files/trimmed/SRR4081246_trimmomatic_crop_75_slow_2_threads.fastq
+/scratch/fuchs/agschulz/kalk/sra_results/files/trimmed/SRR4081247_trimmomatic_crop_75_slow_2_threads.fastq
+/scratch/fuchs/agschulz/kalk/sra_results/files/trimmed/SRR4081248_trimmomatic_crop_75_slow_2_threads.fastq

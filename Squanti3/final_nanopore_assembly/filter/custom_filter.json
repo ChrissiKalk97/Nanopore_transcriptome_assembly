@@ -1,0 +1,44 @@
+{
+    "full-splice_match": [
+        {
+            "perc_A_downstream_TTS": [
+                0,
+                59
+            ],
+            "ratio_TSS": 1.1
+        },
+        {
+            "perc_A_downstream_TTS": [
+                0,
+                59
+            ],
+            "min_cov": 2
+        }
+    ],
+    "rest": [
+        {
+            "perc_A_downstream_TTS": [
+                0,
+                59
+            ],
+            "ratio_TSS": 1.1,
+            "RTS_Stage": "FALSE"
+        },
+        {
+            "perc_A_downstream_TTS": [
+                0,
+                59
+            ],
+            "ratio_TSS": 1.1,
+            "min_cov": 3
+        },
+        {
+            "perc_A_downstream_TTS": [
+                0,
+                59
+            ],
+            "ratio_TSS": 1.1,
+            "all_canonical": "canonical"
+        }
+    ]
+}

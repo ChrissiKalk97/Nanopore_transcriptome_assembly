@@ -1,0 +1,101 @@
+{
+    "full-splice_match": [
+        {
+            "perc_A_downstream_TTS": [
+                0,
+                59
+            ],
+            "ratio_TSS": 1.1
+        },
+        {
+            "perc_A_downstream_TTS": [
+                0,
+                59
+            ],
+            "min_cov": 2
+        }
+    ],
+    "chimeric": [
+        {
+            "perc_A_downstream_TTS": [
+                0,
+                59
+            ],
+            "ratio_TSS": 1.1,
+            "RTS_Stage": "FALSE"
+        },
+        {
+            "perc_A_downstream_TTS": [
+                0,
+                59
+            ],
+            "ratio_TSS": 1.1,
+            "min_cov": 3,
+            "RTS_Stage": "FALSE"
+        },
+        {
+            "perc_A_downstream_TTS": [
+                0,
+                59
+            ],
+            "ratio_TSS": 1.1,
+            "all_canonical": "canonical",
+            "RTS_Stage": "FALSE"
+        }
+    ],
+    "NNC": [
+        {
+            "perc_A_downstream_TTS": [
+                0,
+                59
+            ],
+            "ratio_TSS": 1.1,
+            "RTS_Stage": "FALSE"
+        },
+        {
+            "perc_A_downstream_TTS": [
+                0,
+                59
+            ],
+            "ratio_TSS": 1.1,
+            "all_canonical": "canonical"
+        },
+        {
+            "perc_A_downstream_TTS": [
+                0,
+                59
+            ],
+            "ratio_TSS": 1.1,
+            "min_cov": 3,
+            "bite": "FALSE"
+        }
+    ],
+    "rest": [
+        {
+            "perc_A_downstream_TTS": [
+                0,
+                59
+            ],
+            "ratio_TSS": 1.1,
+            "RTS_Stage": "FALSE"
+        },
+        {
+            "perc_A_downstream_TTS": [
+                0,
+                59
+            ],
+            "ratio_TSS": 1.1,
+            "min_cov": 3,
+            "bite": "FALSE"
+        },
+        {
+            "perc_A_downstream_TTS": [
+                0,
+                59
+            ],
+            "ratio_TSS": 1.1,
+            "all_canonical": "canonical",
+            "bite": "FALSE"
+        }
+    ]
+}

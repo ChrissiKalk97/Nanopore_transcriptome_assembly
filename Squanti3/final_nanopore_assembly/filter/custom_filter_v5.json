@@ -1,0 +1,150 @@
+{
+    "full-splice_match": [
+        {
+            "perc_A_downstream_TTS": [
+                0,
+                59
+            ],
+            "ratio_TSS": 1.1
+        },
+        {
+            "perc_A_downstream_TTS": [
+                0,
+                59
+            ],
+            "min_cov": 2
+        }
+    ],
+    "incomplete-splice_match": [
+        {
+            "perc_A_downstream_TTS": [
+                0,
+                59
+            ],
+            "ratio_TSS": 1.2,
+            "RTS_Stage": "FALSE"
+        },
+        {
+            "perc_A_downstream_TTS": [
+                0,
+                59
+            ],
+            "ratio_TSS": 1.1,
+            "RTS_Stage": "FALSE",
+            "bite": "FALSE"
+        },
+        {
+            "perc_A_downstream_TTS": [
+                0,
+                59
+            ],
+            "ratio_TSS": 1.2,
+            "min_cov": 2,
+            "bite": "FALSE"
+        }
+    ],
+    "novel_in_catalog": [
+        {
+            "perc_A_downstream_TTS": [
+                0,
+                59
+            ],
+            "ratio_TSS": 1.2,
+            "RTS_Stage": "FALSE"
+        },
+        {
+            "perc_A_downstream_TTS": [
+                0,
+                59
+            ],
+            "ratio_TSS": 1.1,
+            "RTS_Stage": "FALSE",
+            "bite": "FALSE"
+        },
+        {
+            "perc_A_downstream_TTS": [
+                0,
+                59
+            ],
+            "ratio_TSS": 1.2,
+            "min_cov": 2,
+            "bite": "FALSE"
+        }
+    ],
+    "chimeric": [
+        {
+            "perc_A_downstream_TTS": [
+                0,
+                59
+            ],
+            "ratio_TSS": 1.2,
+            "min_cov": 3,
+            "RTS_Stage": "FALSE"
+        },
+        {
+            "perc_A_downstream_TTS": [
+                0,
+                59
+            ],
+            "ratio_TSS": 1.2,
+            "all_canonical": "canonical",
+            "RTS_Stage": "FALSE"
+        }
+    ],
+    "novel_not_in_catalog": [
+        {
+            "perc_A_downstream_TTS": [
+                0,
+                59
+            ],
+            "ratio_TSS": 1.2,
+            "RTS_Stage": "FALSE"
+        },
+        {
+            "perc_A_downstream_TTS": [
+                0,
+                59
+            ],
+            "ratio_TSS": 1.2,
+            "all_canonical": "canonical"
+        },
+        {
+            "perc_A_downstream_TTS": [
+                0,
+                59
+            ],
+            "ratio_TSS": 1.2,
+            "min_cov": 3,
+            "bite": "FALSE"
+        }
+    ],
+    "rest": [
+        {
+            "perc_A_downstream_TTS": [
+                0,
+                59
+            ],
+            "ratio_TSS": 1.3,
+            "RTS_Stage": "FALSE",
+            "min_cov": 4
+        },
+        {
+            "perc_A_downstream_TTS": [
+                0,
+                59
+            ],
+            "ratio_TSS": 1.3,
+            "min_cov": 5,
+            "bite": "FALSE"
+        },
+        {
+            "perc_A_downstream_TTS": [
+                0,
+                59
+            ],
+            "ratio_TSS": 1.3,
+            "all_canonical": "canonical",
+            "bite": "FALSE"
+        }
+    ]
+}
